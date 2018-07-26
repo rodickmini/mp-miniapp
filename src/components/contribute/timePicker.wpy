@@ -1,0 +1,46 @@
+<template>
+  <view>
+    <view class="pick-bar">
+      <view class="label">发布时间</view>
+      <view class="content">
+        <text class="time">{{time}}</text>
+        <i class="iconfont icon-xiaojiantou"></i>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class TimePicker extends wepy.component {
+  components = {}
+  props = {
+    time: String
+  }
+  config = {}
+  data = {}
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+.pick-bar {
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+  .label {
+    color: #333333;
+    font-size: 32rpx;
+  }
+  .content {
+    color: #9B9B9B;
+    font-size: 28rpx;
+    .time {
+      vertical-align: middle;
+    }
+  }
+}
+</style>

@@ -1,0 +1,101 @@
+<template>
+  <view class="cps-setting-item-group">
+    <view class="img d-flex" @tap="chooseHeaderImg">
+      <image class="avatar border-radius-50" mode="aspectFill" src="{{item.head_img_url || 'http://static2.ivwen.com/web/a/default_head.png'}}"></image>
+      <text class="leader">圈子名称</text>
+      <i class="iconfont icon-xiaojiantou float-right"></i>
+    </view>
+    <view class="detail">
+      <view class="d-flex title border-bottom">
+        <text class="label">圈子名称</text>
+        <input class="flex-fill text-right" placeholder="请输入" value="{{item.title}}" @input="titleInput" />
+      </view>
+      <textarea class="detail-text" maxlength="100" placeholder="请输入描述内容" value="{{item.detail}}" @input="detailInput"></textarea>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import uploadToQiniu from '../../mixins/uploadToQiniu'
+  // import {connect, getStore} from 'wepy-redux'
+  import _ from '../../js/tools'
+  // const store = getStore()
+
+  // @connect({
+  //
+  // }, {
+  //
+  // })
+
+  export default class createCircle extends wepy.page {
+    config = {
+      navigationBarTitleText: '创建圈子'
+    }
+    mixins = [uploadToQiniu]
+    props = {
+      item: {
+        type: Object,
+        default: {}
+      }
+    }
+    methods = {
+      chooseHeaderImg() {
+        const self = this
+        wx.chooseImage({
+          count: 1,
+          success: function (res) {
+            self.item.head_img_url = res.tempFilePaths
+            self.$apply()
+          }
+        })
+      },
+      titleInput: _.throttle((e) => {
+        this.item.title = e.detail.value
+      },30),
+      detailInput: _.throttle((e) => {
+        this.item.detail = e.detail.value
+      },30)
+    }
+    emitValue() {
+      this.uploadToQiniu(this.item.head_img_url).then(res=> {
+        console.log(res)
+      })
+      console.log(this.item)
+    }
+  }
+</script>
+
+<style lang="scss">
+  $xpadding: 20rpx;
+  .cps-setting-item-group {
+    > view {
+      background: #fff;
+      padding: 0 $xpadding;
+      & + view {
+        margin-top: 20rpx;
+      }
+    }
+    .img {
+      line-height: 100rpx;
+      height: 100rpx;
+      .avatar{
+        width: 80rpx;
+        height: 80rpx;
+        margin-top: 10rpx;
+      }
+      .leader {
+        margin-left: 20rpx;
+        width: 560rpx;
+      }
+    }
+    .detail {
+      .label {
+        margin-right: 20rpx;
+      }
+      .detail-text {
+        margin-top: 12rpx;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,111 @@
+<template>
+  <view class="page-index w-100 h-100">
+    <circleManageBar :lists.sync="circleList" @change.user="sltedCircleChange"></circleManageBar>
+    <mpSwiper :navArr.sync="navArr" @change.user="swiperChange">
+      <repeat for="{{navArr}}" key="index" index="index" item="item">
+        <feedSwiperItem class="h-100"></feedSwiperItem>
+      </repeat>
+      <button slot="append" plain class="border-0 border-radius-0 menu-manage-btn" @tap.stop="circleManage">···</button>
+    </mpSwiper>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import circleManageBar from '../components/circle/circleManageBar'
+  import api from '../api'
+  import {connect, getStore} from 'wepy-redux'
+  import mpSwiper from '../components/mpSwiper'
+  import feedSwiperItem from '../components/circle/feedSwiperItem'
+  import _ from '../js/tools'
+
+  const store = getStore()
+  @connect({
+    circleList(state) {
+      return state.circle.circleList
+    }
+  })
+
+  export default class Index extends wepy.page {
+    components = {
+      feedSwiperItem,
+      mpSwiper,
+      circleManageBar
+    };
+    config = {
+      navigationBarTitleText: '圈子名称'
+    }
+    data = {
+      activeNav: 0,
+      navArr: [],
+      curSwiperDataId: 0,
+      initOnce: false
+    };
+    methods = {
+      swiperChange(e) {
+        const idx = e.detail.current
+        const id = this.navArr[idx].id
+        this.$invoke('feedSwiperItem', 'getArticleArr1', 'parentIndex', id)
+        this.initOnce = false
+      },
+      circleManage() {
+        wx.navigateTo({
+          url: 'circleManage'
+        })
+      },
+      async sltedCircleChange(item) {
+        const nav = await api.follow.fansList({user_id: item.follow.id, last_id: 0})
+        if (nav.errType) {
+          return
+        }
+        // todo mock
+        this.navArr = _.map(nav.data.data.user_list, val =>
+          ({id: val.user_id, elId: `g${val.user_id}`, name: val.nickname.slice(0,4)}))
+        this.$apply()
+        setTimeout(() => {
+          this.$invoke('mpSwiper', 'switchTab', this.navArr[0])
+          // 因为swiper初始为0，所以init时并没有改变，不会触发swiperChange事件
+          if (this.initOnce) {
+            this.$invoke('feedSwiperItem', 'getArticleArr1', 'parentIndex', this.navArr[0].id)
+          }
+        })
+      }
+    }
+
+    async init() {
+      this.initOnce = true
+      const res = await api.follow.follower({max_id: 0, user_id: "30400958"})
+      if (res.errType) {
+        return
+      }
+      const circleList = _.take(res.data.data.follower, 5)
+      store.dispatch({
+        type: 'setCircleList',
+        data: circleList
+      })
+      this.$invoke('circleManageBar', 'sltItem', circleList[0])
+    }
+    onLoad() {
+      wx.pageScrollTo({
+        scrollTop: 69
+      })
+      store.dispatch({
+        type: 'setJwtReadCallback',
+        data: this.init.bind(this)
+      })
+      this.init()
+    }
+  }
+</script>
+
+<style lang="scss">
+  .page-index {
+    box-sizing: border-box;
+    .menu-manage-btn {
+      line-height: 75rpx;
+      padding: 0 0 0 15rpx;
+      box-shadow: 0 0 10px 0 #333;
+      z-index: 99999;
+    }
+  }
+</style>

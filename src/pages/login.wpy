@@ -1,0 +1,57 @@
+<template>
+  <view class="page-login">
+    <button class='btn-login center-flex' open-type="getUserInfo" @getuserinfo="getUserInfo">
+      <text>登录</text>
+    </button>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import {getStore} from 'wepy-redux'
+  // import _ from '../js/tools'
+  const store = getStore()
+
+  export default class login extends wepy.page {
+    introduceAuth() {
+      wx.showModal({
+        title: '温馨提示',
+        content: '只有同意授权美篇小程序才能发现更多精彩，美篇不会将您的信息提供给第三方，请点击登陆',
+        confirmColor: '#2F92FF',
+        showCancel: false,
+        success: () => { // 用户点击“确定”
+
+        }
+      })
+    }
+    methods = {
+      // 获取用户信息
+      getUserInfo: function (e) {
+        let res = e.detail
+        //拒绝授权
+        if (!res.userInfo) {
+          this.introduceAuth()
+          return false
+        }
+        store.dispatch({
+          type: 'setUserInfoRes',
+          data: res
+        })
+        if (store.getState().utils.jwtReadCallback) {
+          store.getState().utils.jwtReadCallback()
+          store.dispatch({
+            type: 'setJwtReadCallback',
+            data: ''
+          })
+        }
+        wx.navigateBack()
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+  .page-login {
+
+  }
+</style>

@@ -1,0 +1,59 @@
+<template>
+  <view class="list-item">
+    <view class="title">{{name}}</view>
+    <view class="info">
+      <i class="iconfont icon-wenzhang"></i><text>{{count}}</text><i class="iconfont icon-huolizhi"></i><text>{{hot}}</text>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class ColumnListItem extends wepy.component {
+  components = {}
+  props = {
+    name: String,
+    count: Number,
+    hot: Number
+  }
+  config = {}
+  data = {}
+  methods = {
+    tap() {
+      console.log('inner tap..')
+    }
+  }
+
+  // onLoad() {
+
+  // }
+}
+</script>
+
+<style lang="scss" scoped>
+$black: #333;
+$grey: #8f8e94;
+.list-item {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content:space-between;
+  height: 128rpx;
+  padding: 24rpx 108rpx 24rpx 0;
+  .title {
+    font-size: 32rpx;
+    line-height: 40rpx;
+    color: $black;
+  }
+  .info {
+    font-size: 24rpx;
+    color: #9B9B9B;
+    line-height: 28rpx;
+    text {
+      margin-right: 24rpx;
+      vertical-align: middle;
+    }
+  }
+}
+</style>

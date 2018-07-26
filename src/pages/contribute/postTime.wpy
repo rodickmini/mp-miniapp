@@ -1,0 +1,109 @@
+<template>
+  <view class="page">
+    <view class="list">
+      <view class="list-item" @tap="toggleStatus({{true}})">
+        <text class="label">立即发布（默认）</text>
+        <i class="iconfont icon-xuanzhong1" wx:if="{{postRightNow}}"></i>
+      </view>
+      <view class="list-item" @tap="toggleStatus({{false}})">
+        <text class="label">其它时间</text>
+        <i class="iconfont icon-xuanzhong1" wx:if="{{!postRightNow}}"></i>
+      </view>
+    </view>
+    <view class="picker-container" wx:if="{{!postRightNow}}">
+      <picker mode="date" value="{{date}}" start="2018-01-01" end="2025-01-01" bindchange="bindDateChange">
+        <view class="picker">
+          <div class="picker-inner">
+            <text class="label">日期</text>
+            <text class="datetime">{{date}}</text>
+          </div>
+        </view>
+      </picker>
+      <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+        <view class="picker">
+          <div class="picker-inner">
+            <text class="label">时间</text>
+            <text class="datetime">{{time}}</text>
+          </div>
+        </view>
+      </picker>
+    </view>
+    <bottom-btn btnText="确定"></bottom-btn>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import BottomBtn from '../../components/bottomBtn'
+
+  export default class PostTime extends wepy.page {
+    components = {
+      'bottom-btn': BottomBtn
+    }
+    config = {
+      navigationBarTitleText: '发布时间'
+    }
+    data = {
+      postRightNow: true,
+      date: '',
+      time: ''
+    }
+    methods = {
+      toggleStatus(status) {
+        this.postRightNow = status
+      }
+    }
+    bindDateChange(e) {
+      console.log(e)
+      this.date = e.detail.value
+    }
+
+    bindTimeChange(e) {
+      this.time = e.detail.value
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.page {
+  padding-top: 20rpx;
+}
+.list {
+  padding-left: 30rpx;
+  background-color: #fff;
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    height: 98rpx;
+    box-sizing: border-box;
+    padding: 22rpx 30rpx 22rpx 0;
+    border-bottom: 2rpx solid #E2E2E2;
+    .label {
+      font-size: 32rpx;
+      line-height: 52rpx;
+      color: #333;
+    }
+    .iconfont {
+      font-size: 48rpx;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+.picker-container {
+  border-top: 2rpx solid #E2E2E2;
+}
+.picker {
+  padding-left: 30rpx;
+  background-color: #fff;
+  .picker-inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 22rpx 30rpx 22rpx 20rpx;
+    border-bottom: 2rpx solid #E2E2E2;
+    font-size: 28rpx;
+    line-height: 42rpx;
+  }
+}
+</style>

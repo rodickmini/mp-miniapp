@@ -1,0 +1,76 @@
+<style lang="scss">
+  @import "./style/app";
+</style>
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+  import { setStore } from 'wepy-redux'
+  import _ from './js/tools'
+
+  import configStore from './store'
+
+  const store = configStore()
+  setStore(store)
+
+  export default class myApp extends wepy.app {
+    config = {
+      pages: [
+        'pages/index',
+        'pages/add',
+        'pages/me',
+        'pages/login',
+        'pages/circle/createCircle',
+        'pages/contribute/index', // 投稿
+        'pages/contribute/indexMaster', // 管理员投稿
+        'pages/contribute/chooseContributeColumn', // 选择投稿栏目
+        'pages/contribute/chooseContributeArticle', // 选择投稿文章
+        'pages/contribute/postTime', // 选择发布时间
+        'pages/memberManagement/memberList' // 成员管理 - 会员列表
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTitleText: '圈子',
+        navigationBarTextStyle: 'black'
+      },
+      tabBar: {
+        borderStyle: 'black',
+        backgroundColor: '#FFF',
+        color: '#9b9b9b',
+        selectedColor: '#333333',
+        list: [
+          {
+            pagePath: 'pages/index',
+            text: '圈子',
+            iconPath: 'imgs/circle.png',
+            selectedIconPath: 'imgs/circle_selected.png'
+          },
+          {
+            pagePath: 'pages/add',
+            text: '开始创作',
+            iconPath: 'imgs/add.png',
+            selectedIconPath: 'imgs/add.png'
+          },
+          {
+            pagePath: 'pages/me',
+            text: '我的',
+            iconPath: 'imgs/me.png',
+            selectedIconPath: 'imgs/me_selected.png'
+          }
+        ]
+      }
+    };
+
+    globalData = {
+      userInfo: null
+    }
+
+    constructor () {
+      super()
+      // 修复wx.request的并发问题
+      this.use('requestfix')
+    }
+    _ = _
+  }
+</script>
+

@@ -1,0 +1,129 @@
+<template>
+  <view class="cps-feed-item">
+    <view class="img-box position-relative" style="{{'background: url('+item.cover_img_url+') center no-repeat'}}">
+      <view class="info clearfix">
+        <text class="title float-left line-clamp-1">{{item.title}}</text>
+        <view class="float-right">
+          <view class="cps-show-count">
+            <i class="icon icon-zan"></i>
+            <text class="count">{{item.praise_count}}</text>
+          </view>
+          <view class="cps-show-count">
+            <i class="icon icon-comment"></i>
+            <text class="count">{{item.comment_count}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="clearfix info-item p-20 border-bottom">
+      <view class="float-left clearfix item-mw">
+        <image class="avatar border-radius-50 float-left" src="{{item.head_img_url || 'http://static2.ivwen.com/web/a/default_head.png'}}"></image>
+        <text class="ml-12 float-left user-name line-clamp-1">{{item.abstract}}</text>
+      </view>
+      <text class="float-right">1234</text>
+    </view>
+    <repeat for="{{item.comments || [1, 2]}}" key="index" index="index" item="tem">
+      <view class="clearfix comment-item">
+        <view class="float-left d-flex item-mw">
+          <image class="avatar float-left" src="{{item.head_img_url || 'http://static2.ivwen.com/web/a/default_head.png'}}"></image>
+          <text class="ml-12 float-left user-name line-clamp-1 flex-fill w-0">小妹小妹小妹小妹小妹小妹小妹小妹小妹小妹小妹小妹</text>
+        </view>
+        <text class="float-right">刚刚</text>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  // import {connect, getStore} from 'wepy-redux'
+  // import _ from '../js/tools'
+  // const store = getStore()
+
+  // @connect({
+  //
+  // }, {
+  //
+  // })
+
+  export default class feedItem extends wepy.component {
+    props = {
+      item: {
+        type: Object
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+  .cps-feed-item {
+    width: 710rpx;
+    margin: 20rpx auto 0;
+    border-radius: 24rpx;
+    overflow: hidden;
+    box-shadow: 0 10rpx 20rpx 0 rgba(231,231,231,0.50);
+    .ml-12 {
+      margin-left: 12rpx;
+    }
+    .ml-20 {
+      margin-left: 20rpx;
+    }
+    .img-box {
+      height: 336rpx;
+      background-size: cover !important;
+      .info {
+        position: absolute;
+        bottom: 20rpx;
+        padding: 0 20rpx;
+        color: #fff;
+        width: 710rpx;
+        box-sizing: border-box;
+        vertical-align: bottom;
+        line-height: 40rpx;
+        .title {
+          width: 476rpx;
+          font-size: 36rpx;
+        }
+        .float-right {
+          line-height: 28rpx;
+        }
+        .cps-show-count {
+          line-height: 24rpx;
+          & + .cps-show-count{
+            margin-left: 20rpx;
+          }
+        }
+      }
+    }
+    .p-20 {
+      padding: 20rpx;
+    }
+    .item-mw {
+      width: 600rpx;
+    }
+    .info-item {
+      font-size: 28rpx;
+      line-height: 48rpx;
+      .avatar {
+        width: 48rpx;
+        height: 48rpx;
+      }
+      .user-name {
+        color: #333333;
+      }
+    }
+    .comment-item {
+      font-size: 28rpx;
+      padding: 12rpx 20rpx;
+      line-height: 40rpx;
+      color: #9B9B9B;
+      .avatar {
+        width: 40rpx !important;
+        height: 40rpx !important;
+      }
+      &:last-child {
+        padding-bottom: 20rpx;
+      }
+    }
+  }
+</style>

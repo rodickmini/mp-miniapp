@@ -1,0 +1,195 @@
+<template>
+  <view class="user-list" @tap="handlePopoverHide">
+    <repeat for="{{userList}}" key="index" index="index" item="userInfo">
+      <view class="user-item-wrapper">
+        <view class="cell" data-user-id="{{userInfo.id}}">
+          <view class="info">
+            <view class="avatar-container">
+              <image class="avatar" src="{{userInfo.avatar}}"/>
+              <text class="role-badge" wx:if="{{userInfo.role === 1}}">管理员</text>
+              <text class="role-badge master" wx:if="{{userInfo.role === 2}}">圈主</text>
+            </view>
+            <view class="name-area">
+              <view class="nickname line-clamp-1">{{userInfo.nickname}}</view>
+              <view class="signature line-clamp-1" wx:if="{{userInfo.signature}}">{{userInfo.signature}}</view>
+            </view>
+          </view>
+          <view class="op" @tap.stop="showPopover({{index}})">
+            <i class="iconfont icon-gengduo"></i>
+            <view class="popover" wx:if="{{popoverShow[index]}}">
+              <view class="list-item" @tap.stop="cancelAdmin">
+                <i class="iconfont icon-quxiaoguanliyuan"></i> <text>取消管理员</text>
+              </view>
+              <view class="list-item error" @tap.stop="removeMember">
+                <i class="iconfont icon-shanchu"></i> <text>移除会员</text>
+              </view>
+              <view class="angle"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class UserList extends wepy.component {
+  components = {}
+  props = {
+    userList: Array
+  }
+  config = {}
+  data = {
+    popoverShow: {}
+  }
+  methods = {
+    showPopover(index) {
+      let hasPopover = false
+      Object.keys(this.popoverShow).forEach(index => {
+        if (this.popoverShow[index] === true) {
+          hasPopover = true
+        }
+      })
+      if (!hasPopover) {
+        this.popoverShow[index] = true
+      } else {
+        this.hideAllPopover()
+      }
+    },
+    handlePopoverHide() {
+      this.hideAllPopover()
+    },
+    cancelAdmin() {
+      console.log('cancel admin...')
+    },
+    removeMember() {
+      console.log('remove member..')
+    }
+  }
+  hideAllPopover() {
+    Object.keys(this.popoverShow).forEach(index => {
+      this.popoverShow[index] = false
+    })
+  }
+  events = {
+    'hide-popover': (e) => {
+      this.hideAllPopover()
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.user-list {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding-left: 30rpx;
+  .user-item-wrapper {
+    border-bottom: 2rpx solid #E2E2E2;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+.cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx 20rpx 0;
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .avatar-container {
+      position: relative;
+      margin-right: 30rpx;
+      .avatar {
+        width: 120rpx;
+        height: 120rpx;
+        border-radius: 50%;
+        vertical-align: middle;
+        flex-shrink: 0;
+      }
+      .role-badge {
+        position: absolute;
+        bottom: 0;
+        left: 10rpx;
+        right: 10rpx;
+        display: inline-block;
+        background-color: #F5A623;
+        color: #fff;
+        font-size: 24rpx;
+        text-align: center;
+        border-radius: 34rpx;
+        &.master {
+          background-color: #333;
+        }
+      }
+    }
+    .name-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 120rpx;
+      .nickname {
+        font-size: 32rpx;
+        color: #333;
+      }
+      .signature {
+        font-size: 28rpx;
+        color: #BDBDBD;
+      }
+    }
+  }
+  .op {
+    position: relative;
+    width: 48rpx;
+    text-align: center;
+    .iconfont {
+      font-size: 48rpx;
+    }
+    .popover {
+      position: absolute;
+      right: -10rpx;
+      bottom: 48rpx;
+      width: 260rpx;
+      height: 160rpx;
+      padding: 20rpx;
+      background: #fff;
+      box-shadow: 0 10rpx 40rpx 0 rgba(0,0,0,0.1);
+      border-radius: 12rpx 12rpx 12rpx 16rpx;
+      border: 2rpx solid #EAEAEA;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      color: #333;
+      .list-item {
+        height: 80rpx;
+        line-height: 80rpx;
+        text {
+          font-size: 32rpx;
+          vertical-align: middle;
+          margin-left: 8rpx;
+        }
+        &.error {
+          color: #EF544D;
+        }
+      }
+      .angle {
+        position: absolute;
+        right: 21rpx;
+        bottom: -10rpx;
+        width: 30rpx;
+        height: 30rpx;
+        transform: rotate(45deg);
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+</style>

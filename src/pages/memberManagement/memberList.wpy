@@ -1,0 +1,108 @@
+<template>
+  <view class="page" @tap="handlePopoverHide">
+    <mp-tab :itemArray="tabItemArray"/>
+    <scroll-view scroll-y class="scroll-view" bindscrolltolower="loadMore" lower-threshold="50">
+      <view class="cell-access">
+        <view class="label">会员申请</view>
+        <view class="info">
+          <badge :text="applyCount"/>
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+      <user-list :userList="userList"/>
+    </scroll-view>
+    <bottom-btn btnText="完成"></bottom-btn>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import BottomBtn from '../../components/bottomBtn'
+  import Badge from '../../components/badge'
+  import MpTab from '../../components/memberManagement/mpTab'
+  import UserList from '../../components/memberManagement/userList'
+
+  export default class MemberList extends wepy.page {
+    components = {
+      'bottom-btn': BottomBtn,
+      'mp-tab': MpTab,
+      'user-list': UserList,
+      'badge': Badge
+    }
+    config = {
+      navigationBarTitleText: '成员管理'
+    }
+    data = {
+      applyCount: '999+',
+      tabItemArray: [{
+        text: '会员·12',
+        active: true
+      }, {
+        text: '粉丝·11K',
+        active: false
+      }],
+
+      userList: [{
+        id: 123,
+        avatar: 'https://ss2.meipian.me/users/39783355/059dfba3a1a3414cb62ad9a7f9986b54.jpg-mobile',
+        nickname: '昵称昵称昵称昵称昵称昵称昵称昵称昵称',
+        signature: '签名签名签名签名签名签名签名签名签名',
+        role: 0
+      }, {
+        id: 1233,
+        avatar: 'https://ss2.meipian.me/users/39783355/059dfba3a1a3414cb62ad9a7f9986b54.jpg-mobile',
+        nickname: '昵称',
+        signature: '签名签名签名签名',
+        role: 1
+      }, {
+        id: 12323,
+        avatar: 'https://ss2.meipian.me/users/39783355/059dfba3a1a3414cb62ad9a7f9986b54.jpg-mobile',
+        nickname: '昵称昵称昵称昵称',
+        signature: '',
+        role: 2
+      }]
+      
+    }
+    methods = {
+      handlePopoverHide() {
+        this.$broadcast('hide-popover')
+      }
+    }
+    // onLoad() {
+      
+    // }
+  }
+</script>
+
+<style lang="scss" scoped>
+.page {
+  height: 100%;
+  .scroll-view {
+    height: 100%;
+    padding-top: 100rpx;
+    padding-bottom: 90rpx;
+    box-sizing: border-box;
+    .cell-access {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 88rpx;
+      background-color: #fff;
+      padding: 22rpx 30rpx;
+      .label {
+        color: #333;
+        font-size: 32rpx;
+      }
+      .info {
+        .iconfont {
+          font-size: 28rpx;
+          color: #BDBDBD;
+          margin-left: 10rpx;
+        }
+      }
+    }
+    
+  }
+}
+
+</style>

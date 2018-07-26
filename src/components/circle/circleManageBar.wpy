@@ -1,0 +1,74 @@
+<template>
+  <view class="cps-circle-manage-bar">
+    <repeat for="{{lists}}" key="index" index="index" item="item">
+      <view class="item text-center {{activeItem.id === item.id ? 'active' : ''}}" @tap="sltItem({{item}})">
+        <image class="avatar border-radius-50"
+               src="{{item.follow.head_img_url || 'http://static2.ivwen.com/web/a/default_head.png'}}"></image>
+        <text class="circle-name">{{item.follow.nickname}}</text>
+      </view>
+    </repeat>
+    <view class="item text-center" @tap="createCircle">
+      <image class="avatar border-radius-50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAWlBMVEUAAABoaGhmZmZnZ2dmZmZnZ2dmZmZoaGhnZ2dmZmZmZmZmZmZmZmZnZ2dmZmZmZmZnZ2dmZmZoaGhqampoaGhmZmZqampvb29qampmZmb////p6el7e3urq6vKwtFrAAAAGXRSTlMAgPXjzo5XPvvt5ty7soRzZ0ZCNTEjIRcMVxAljAAAAMxJREFUSMfdlUkOgzAQBId939c28P9vhiRCTixA7it1LlmW3dMjz2CMwso5qMJovFajIINJFkSnbuPjHL8RkyHHNfnwL7cJ7kjaX7mOcU9cazmEwbqtMAgPuXdhsKgFBm7/lWcPJkopmHjzx3ZgZcN5y5NrabvTbgewtBHstmdteyIdrG10UhJ2KQVhF+ITti+p/u5FnbHoEKSi87SpczadLe5s7t7cm3Dvzf0llRMug1y+qdnh5pKaeapPqK6iepDqWKa/md3A7J1H8AICiIEV4+4GGgAAAABJRU5ErkJggg=="></image>
+      <text class="circle-name">新建</text>
+    </view>
+    <view class="item text-center">
+      <text class="circle-name">···</text>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  // import {connect, getStore} from 'wepy-redux'
+  // import _ from '../js/tools'
+  // const store = getStore()
+
+  export default class circleManageBar extends wepy.component {
+    props = {
+      lists: {
+        type: Array,
+        default: []
+      }
+    }
+    data = {
+      activeItem: {}
+    }
+    methods = {
+      sltItem(item) {
+        this.activeItem = item
+        this.$emit('change', item)
+      },
+      createCircle() {
+        wx.navigateTo({
+          url: 'circle/createCircle'
+        })
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+  @import "../../style/var";
+  .cps-circle-manage-bar {
+    .item {
+      width: 14.28%;
+      display: inline-block;
+      &.active {
+        color: $primary;
+      }
+      .avatar {
+        width: 60rpx;
+        height: 60rpx;
+      }
+      .circle-name {
+        text-overflow: clip !important;
+        height: 40rpx;
+        line-height: 40rpx;
+        font-size: 28rpx;
+        overflow: hidden;
+        display: block;
+        margin: 0 20rpx;
+      }
+    }
+  }
+</style>
