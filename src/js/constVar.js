@@ -1,5 +1,5 @@
 export default {
-  apiDomain: 'https://t-minaapi.meipian.me/',
+  apiDomain: 'http://yimi.com/',
   qiniu: {
     region: 'ECN'
   }
