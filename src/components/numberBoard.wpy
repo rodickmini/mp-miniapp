@@ -34,9 +34,9 @@ export default class NumberBoard extends wepy.component {
 <style lang="scss" scoped>
 $mainBlue: #04A7FE;
 .list {
-  height: 276rpx;
+  height: 320rpx;
   background-color: #fff;
-  padding-top: 150rpx;
+  padding-top: 194rpx;
   display: flex;
   justify-content: space-around;
   .lego {

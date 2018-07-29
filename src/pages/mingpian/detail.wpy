@@ -92,11 +92,11 @@ $mainBlue: #04A7FE;
   .card {
     position: relative;
     width: 690rpx;
-    height: 380rpx;
+    height: 420rpx;
     background: #FDFDFD;
     box-shadow: 3rpx 3rpx 14rpx 5rpx rgba(58,58,58,0.09);
     border-radius: 16rpx;
-    margin: 0 auto 50rpx;
+    margin: 0 auto;
   }
 }
 .more-info {
