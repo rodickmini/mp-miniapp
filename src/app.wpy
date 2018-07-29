@@ -19,7 +19,9 @@
         'pages/tongxunlu',
         'pages/renmai',
         'pages/wode',
-        'pages/mingpian/detail'
+        'pages/mingpian/detail',
+        'pages/mingpian/fangwenliang', // 访问量
+        'pages/mingpian/dianzanliang' // 点赞量
       ],
       window: {
         backgroundTextStyle: 'light',
