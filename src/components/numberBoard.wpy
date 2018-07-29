@@ -3,15 +3,15 @@
     <view class="list">
       <view class="lego">
         <view class="number">1234</view>
-        <view class="cap">访问量</view>
+        <view class="cap"><i class="iconfont icon-renqi"></i><text>访问量</text></view>
       </view>
       <view class="lego">
         <view class="number">300</view>
-        <view class="cap">人脉数</view>
+        <view class="cap"><i class="iconfont icon-xingxing"></i><text>人脉数</text></view>
       </view>
       <view class="lego">
         <view class="number">1.5W+</view>
-        <view class="cap">点赞数</view>
+        <view class="cap"><i class="iconfont icon-dianzan has-zan"></i><text>点赞数</text></view>
       </view>
     </view>
   </view>
@@ -49,7 +49,24 @@ $mainBlue: #04A7FE;
     }
     .cap {
       font-size: 24rpx;
-      color: #909090
+      color: #909090;
+      vertical-align: middle;
+      .iconfont {
+        font-size: 24rpx;
+        margin-right: 6rpx;
+        &.icon-renqi {
+          color: $mainBlue;
+        }
+        &.icon-xingxing {
+          color: #FED047;
+        }
+        &.has-zan {
+          color: #ED6248;
+        }
+      }
+      text {
+        vertical-align: middle;
+      }
     }
   }
 }

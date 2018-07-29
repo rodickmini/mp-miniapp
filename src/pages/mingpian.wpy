@@ -3,6 +3,12 @@
     <view class="top-bg">
       <view class="card">
         <view class="change-theme"></view>
+        <view class="to-right">
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+        <view class="edit">
+          <i class="iconfont icon-edit"></i>
+        </view>
         <name-card />
       </view>
     </view>
@@ -57,9 +63,35 @@ $mainBlue: #04A7FE;
       right: 0;
       width: 63rpx;
       height: 63rpx;
-      background-image: url(https://ss2.meipian.me/theme/v2/img/change_theme.png);
+      background-image: url(https://ss2.meipian.me/theme/v2/img/change.png);
       background-repeat: no-repeat;
       background-size: 100%;
+    }
+    .to-right {
+      position: absolute;
+      top: 50%;
+      right: 25rpx;
+      width: 24rpx;
+      height: 30rpx;
+      margin-top: -15rpx;
+      .iconfont {
+        color: #909090;
+        font-size: 24rpx;
+      }
+    }
+    .edit {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80rpx;
+      height: 80rpx;
+      .iconfont {
+        position: absolute;
+        right: 25rpx;
+        bottom: 36rpx;
+        color: $mainBlue;
+        font-size: 28rpx;
+      }
     }
   }
 }

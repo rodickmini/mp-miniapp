@@ -11,9 +11,9 @@
       </view>
     </view>
     <view class="contact-row">
-      <view class="phone">18888888888</view>
-      <view class="mail">a@b.com</view>
-      <view class="location">江苏省南京市仙林大街199号</view>
+      <view class="phone"><i class="iconfont icon-dianhua"></i><text>18888888888</text></view>
+      <view class="mail"><i class="iconfont icon-youxiang"></i><text>a@b.com</text></view>
+      <view class="location"><i class="iconfont icon-dizhi"></i><text>江苏省南京市仙林大街199号</text></view>
     </view>
   </view>
 </template>
@@ -48,6 +48,7 @@ $mainBlue: #04A7FE;
     .avatar {
       width: 140rpx;
       height: 140rpx;
+      border-radius: 16rpx;
       margin-right: 24rpx;
     }
     .name-info {
@@ -67,6 +68,14 @@ $mainBlue: #04A7FE;
   .contact-row {
     font-size: 28rpx;
     line-height: 28rpx;
+    .iconfont {
+      font-size: 28rpx;
+      color: #D8D8D8;
+      margin-right: 12rpx;
+    }
+    text {
+      vertical-align: middle;
+    }
     .phone {
       color: $mainBlue;
       margin-bottom: 20rpx;

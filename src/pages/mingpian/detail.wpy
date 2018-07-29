@@ -41,6 +41,17 @@
         </ul>
       </view>
     </view>
+    <view class="btn-bottom">
+      <view class="left-btn">
+        <i class="iconfont icon-information"></i>
+        <text class="text">返回首页</text>
+      </view>
+      <view class="main-btn">发名片</view>
+      <view class="right-btn">
+        <i class="iconfont icon-edit"></i>
+        <text class="text">编辑名片</text>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -71,6 +82,9 @@
 
 <style lang="scss" scoped>
 $mainBlue: #04A7FE;
+.page {
+  margin-bottom: 102rpx;
+}
 .top-bg {
   height: 320rpx;
   background-color: $mainBlue;
@@ -142,6 +156,36 @@ $mainBlue: #04A7FE;
         margin-bottom: 0;
       }
     }
+  }
+}
+.btn-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background-color: #fff;
+  // border-top: 2rpx solid #E8E8E8;
+  display: flex;
+  justify-content: space-between;
+  .left-btn, .right-btn {
+    width: 200rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #303030;
+    font-size: 20rpx;
+    .iconfont {
+      margin-bottom: 14rpx;
+    }
+  }
+  .main-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: $mainBlue;
+    color: #fff;
   }
 }
 </style>
