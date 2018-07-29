@@ -16,9 +16,10 @@
     config = {
       pages: [
         'pages/mingpian',
-        'pages/renmai',
         'pages/tongxunlu',
-        'pages/wode'
+        'pages/renmai',
+        'pages/wode',
+        'pages/mingpian/detail'
       ],
       window: {
         backgroundTextStyle: 'light',
@@ -39,16 +40,16 @@
             selectedIconPath: 'imgs/mingpian_s.png'
           },
           {
-            pagePath: 'pages/renmai',
-            text: '人脉',
-            iconPath: 'imgs/renmai.png',
-            selectedIconPath: 'imgs/renmai_s.png'
-          },
-          {
             pagePath: 'pages/tongxunlu',
             text: '通讯录',
             iconPath: 'imgs/tongxunlu.png',
             selectedIconPath: 'imgs/tongxunlu_s.png'
+          },
+          {
+            pagePath: 'pages/renmai',
+            text: '人脉',
+            iconPath: 'imgs/renmai.png',
+            selectedIconPath: 'imgs/renmai_s.png'
           },
           {
             pagePath: 'pages/wode',

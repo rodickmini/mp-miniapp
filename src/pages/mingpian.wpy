@@ -1,14 +1,31 @@
 <template>
-  <view class="a">fdafdasfdfdf</view>
+  <view class="page">
+    <view class="top-bg">
+      <view class="card">
+        <view class="change-theme"></view>
+        <name-card />
+      </view>
+    </view>
+    <number-board />
+    <button class="btn btn-send">发名片</button>
+    <button class="btn btn-send-hongbao">发红包名片</button>
+  </view>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import NameCard from '../components/nameCard'
+  import NumberBoard from '../components/numberBoard'
 
   export default class Mingpian extends wepy.page {
-    components = {}
+    components = {
+      'name-card': NameCard,
+      'number-board': NumberBoard
+    }
     config = {
-      navigationBarTitleText: '名片'
+      navigationBarTitleText: '名片',
+      navigationBarBackgroundColor: '#04A7FE',
+      navigationBarTextStyle: 'white'
     }
     data = {}
     methods = {
@@ -21,4 +38,49 @@
 </script>
 
 <style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.top-bg {
+  height: 320rpx;
+  background-color: $mainBlue;
+  padding-top: 40rpx;
+  .card {
+    position: relative;
+    width: 690rpx;
+    height: 380rpx;
+    background: #FDFDFD;
+    box-shadow: 3rpx 3rpx 14rpx 5rpx rgba(58,58,58,0.09);
+    border-radius: 16rpx;
+    margin: 0 auto 50rpx;
+    .change-theme {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 63rpx;
+      height: 63rpx;
+      background-image: url(https://ss2.meipian.me/theme/v2/img/change_theme.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+.btn {
+  width: 600rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  margin: 60rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #fff;
+  &.btn-send {
+    background-color: #04A7FE;
+  }
+  &.btn-send-hongbao {
+    background-color: rgb(255, 60, 0);
+    background-image: url(https://ss2.meipian.me/theme/v2/img/btn_hongbao_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
 </style>

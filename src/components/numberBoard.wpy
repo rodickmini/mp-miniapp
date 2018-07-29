@@ -1,0 +1,56 @@
+<template>
+  <view>
+    <view class="list">
+      <view class="lego">
+        <view class="number">1234</view>
+        <view class="cap">访问量</view>
+      </view>
+      <view class="lego">
+        <view class="number">300</view>
+        <view class="cap">人脉数</view>
+      </view>
+      <view class="lego">
+        <view class="number">1.5W+</view>
+        <view class="cap">点赞数</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class NumberBoard extends wepy.component {
+  components = {}
+  props = {
+    numberInfo: Object
+  }
+  config = {}
+  data = {}
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.list {
+  height: 276rpx;
+  background-color: #fff;
+  padding-top: 150rpx;
+  display: flex;
+  justify-content: space-around;
+  .lego {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .number {
+      font-size: 36rpx;
+      color: #202020;
+    }
+    .cap {
+      font-size: 24rpx;
+      color: #909090
+    }
+  }
+}
+</style>

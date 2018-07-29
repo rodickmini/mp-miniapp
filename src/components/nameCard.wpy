@@ -1,0 +1,83 @@
+<template>
+  <view class="card-outer">
+    <view class="name-row">
+      <image class="avatar" mode="aspectFill" src="http://ss2.meipian.me/users/7996859/b911a8557602453babd556a19841a5c7.jpg"/>
+      <view class="name-info">
+        <view class="name">张三</view>
+        <view class="comp-info">
+          <view>设计主管 | 互联网</view>
+          <view>阿里妈妈互联网有限公司</view>
+        </view>
+      </view>
+    </view>
+    <view class="contact-row">
+      <view class="phone">18888888888</view>
+      <view class="mail">a@b.com</view>
+      <view class="location">江苏省南京市仙林大街199号</view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class NameCard extends wepy.component {
+  components = {}
+  props = {
+    cardInfo: Object
+  }
+  config = {}
+  data = {}
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.card-outer {
+  width: 690rpx;
+  height: 380rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx 25rpx 36rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .name-row {
+    display: flex;
+    .avatar {
+      width: 140rpx;
+      height: 140rpx;
+      margin-right: 24rpx;
+    }
+    .name-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .name {
+        font-size: 40rpx;
+        color: #303030;
+      }
+      .comp-info {
+        color: #909090;
+        font-size: 24rpx;
+      }
+    }
+  }
+  .contact-row {
+    font-size: 28rpx;
+    line-height: 28rpx;
+    .phone {
+      color: $mainBlue;
+      margin-bottom: 20rpx;
+    }
+    .mail {
+      color: #909090;
+      margin-bottom: 20rpx;
+    }
+    .location {
+      color: #909090;
+    }
+  }
+}
+</style>
