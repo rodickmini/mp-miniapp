@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class="contact-row">
-      <view class="phone line-clamp-1"><i class="iconfont icon-dianhua"></i><text>18888888888</text></view>
+      <view class="phone line-clamp-1"><i class="iconfont icon-dianhua"></i><text>18888888888</text><i class="iconfont icon-suo"></i></view>
       <view class="mail line-clamp-1"><i class="iconfont icon-youxiang"></i><text>a@b.com</text></view>
       <view class="location line-clamp-1"><i class="iconfont icon-dizhi"></i><text>江苏省南京市仙林大街199号</text></view>
     </view>
@@ -73,6 +73,7 @@ $mainBlue: #04A7FE;
       font-size: 28rpx;
       color: #D8D8D8;
       margin-right: 12rpx;
+      // vertical-align: -1rpx;
     }
     text {
       vertical-align: middle;
@@ -80,6 +81,13 @@ $mainBlue: #04A7FE;
     .phone {
       color: $mainBlue;
       margin-bottom: 20rpx;
+      .icon-suo {
+        color: $mainBlue;
+        margin-left: 15rpx;
+      }
+      .icon-suo-open {
+        margin-left: 15rpx;
+      }
     }
     .mail {
       color: #909090;
