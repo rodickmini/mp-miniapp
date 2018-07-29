@@ -15,10 +15,10 @@
   export default class myApp extends wepy.app {
     config = {
       pages: [
-        'pages/index',
-        'pages/add',
-        'pages/me',
-        'pages/login'
+        'pages/mingpian',
+        'pages/renmai',
+        'pages/tongxunlu',
+        'pages/wode'
       ],
       window: {
         backgroundTextStyle: 'light',
@@ -28,37 +28,37 @@
       },
       tabBar: {
         borderStyle: 'black',
-        backgroundColor: '#FFF',
-        color: '#9b9b9b',
-        selectedColor: '#333333',
+        backgroundColor: '#FAFAFA',
+        color: '#909090',
+        selectedColor: '#04A7FE',
         list: [
           {
-            pagePath: 'pages/index',
+            pagePath: 'pages/mingpian',
             text: '名片',
-            iconPath: 'imgs/circle.png',
-            selectedIconPath: 'imgs/circle_selected.png'
+            iconPath: 'imgs/mingpian.png',
+            selectedIconPath: 'imgs/mingpian_s.png'
           },
           {
-            pagePath: 'pages/add',
+            pagePath: 'pages/renmai',
             text: '人脉',
-            iconPath: 'imgs/add.png',
-            selectedIconPath: 'imgs/add.png'
+            iconPath: 'imgs/renmai.png',
+            selectedIconPath: 'imgs/renmai_s.png'
           },
           {
-            pagePath: 'pages/me',
+            pagePath: 'pages/tongxunlu',
             text: '通讯录',
-            iconPath: 'imgs/me.png',
-            selectedIconPath: 'imgs/me_selected.png'
+            iconPath: 'imgs/tongxunlu.png',
+            selectedIconPath: 'imgs/tongxunlu_s.png'
           },
           {
-            pagePath: 'pages/me',
+            pagePath: 'pages/wode',
             text: '我的',
-            iconPath: 'imgs/me.png',
-            selectedIconPath: 'imgs/me_selected.png'
+            iconPath: 'imgs/wode.png',
+            selectedIconPath: 'imgs/wode_s.png'
           }
         ]
       }
-    };
+    }
 
     globalData = {
       userInfo: null

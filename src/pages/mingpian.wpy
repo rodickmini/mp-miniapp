@@ -1,0 +1,24 @@
+<template>
+  <view class="a">fdafdasfdfdf</view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Mingpian extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '名片'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+</style>

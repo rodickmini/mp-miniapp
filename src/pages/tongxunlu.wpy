@@ -1,0 +1,26 @@
+<template>
+  <view>
+    通讯录
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Tongxunlu extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '通讯录'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+</style>

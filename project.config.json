@@ -1,14 +1,13 @@
 {
   "description": "名片",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "postcss": false,
     "minified": false
   },
   "compileType": "miniprogram",
-//  "appid": "wx829772706adc57ae",
   "appid": "wx2d2f771e33c435c8",
-  "projectname": "mp-pro-wxapp",
+  "projectname": "mp-miniapp",
   "miniprogramRoot": "./dist"
 }
