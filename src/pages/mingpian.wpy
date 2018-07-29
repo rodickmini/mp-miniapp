@@ -1,7 +1,7 @@
 <template>
   <view class="page">
     <view class="top-bg">
-      <view class="card">
+      <view class="card" @tap="gotoDetail">
         <view class="change-theme"></view>
         <view class="to-right">
           <i class="iconfont icon-xiaojiantou"></i>
@@ -35,7 +35,23 @@
     }
     data = {}
     methods = {
-      
+      gotoDetail() {
+        wx.navigateTo({url: 'mingpian/detail'})
+      },
+      gotoFangwenliang() {
+        wx.navigateTo({url: 'mingpian/fangwenliang'})
+      },
+      gotoDianzanliang() {
+        wx.navigateTo({url: 'mingpian/dianzanliang'})
+      }
+    }
+    events = {
+      'fangwenliang-tap': () => {
+        this.methods.gotoFangwenliang()
+      },
+      'dianzanliang-tap': () => {
+        this.methods.gotoDianzanliang()
+      }
     }
     onLoad() {
       

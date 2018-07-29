@@ -16,7 +16,7 @@
       'top-tab': TopTab
     }
     config = {
-      navigationBarTitleText: '访问量',
+      navigationBarTitleText: '点赞量',
       navigationBarBackgroundColor: '#FAFAFA'
       // navigationBarTextStyle: 'white'
     }

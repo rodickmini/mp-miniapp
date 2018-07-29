@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="list">
-      <view class="lego">
+      <view class="lego" @tap="fangwenliangTap">
         <view class="number">1234</view>
         <view class="cap"><i class="iconfont icon-renqi"></i><text>访问量</text></view>
       </view>
@@ -9,7 +9,7 @@
         <view class="number">300</view>
         <view class="cap"><i class="iconfont icon-xingxing"></i><text>人脉数</text></view>
       </view>
-      <view class="lego">
+      <view class="lego" @tap="dianzanliangTap">
         <view class="number">1.5W+</view>
         <view class="cap"><i class="iconfont icon-dianzan has-zan"></i><text>点赞数</text></view>
       </view>
@@ -27,7 +27,14 @@ export default class NumberBoard extends wepy.component {
   }
   config = {}
   data = {}
-  methods = {}
+  methods = {
+    fangwenliangTap() {
+      this.$emit('fangwenliang-tap')
+    },
+    dianzanliangTap() {
+      this.$emit('dianzanliang-tap')
+    }
+  }
 }
 </script>
 

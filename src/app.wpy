@@ -19,7 +19,7 @@
         'pages/tongxunlu',
         'pages/renmai',
         'pages/wode',
-        'pages/mingpian/detail',
+        'pages/mingpian/detail', // 名片详情
         'pages/mingpian/fangwenliang', // 访问量
         'pages/mingpian/dianzanliang' // 点赞量
       ],
