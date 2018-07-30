@@ -36,22 +36,11 @@
     data = {}
     methods = {
       gotoDetail() {
-        wx.navigateTo({url: 'mingpian/detail'})
-      },
-      gotoFangwenliang() {
-        wx.navigateTo({url: 'mingpian/fangwenliang'})
-      },
-      gotoDianzanliang() {
-        wx.navigateTo({url: 'mingpian/dianzanliang'})
+        wx.navigateTo({url: 'mingpian.detail'})
       }
     }
     events = {
-      'fangwenliang-tap': () => {
-        this.methods.gotoFangwenliang()
-      },
-      'dianzanliang-tap': () => {
-        this.methods.gotoDianzanliang()
-      }
+      
     }
     onLoad() {
       
@@ -101,7 +90,7 @@ $mainBlue: #04A7FE;
       .iconfont {
         position: absolute;
         right: 25rpx;
-        bottom: 36rpx;
+        bottom: 54rpx;
         color: $mainBlue;
         font-size: 28rpx;
       }
