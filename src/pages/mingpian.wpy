@@ -13,7 +13,7 @@
       </view>
     </view>
     <number-board/>
-    <button class="btn btn-send">发名片</button>
+    <button class="btn btn-send" open-type="share">发名片</button>
     <button class="btn btn-send-hongbao">发红包名片</button>
   </view>
 </template>
