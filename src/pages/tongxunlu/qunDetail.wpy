@@ -44,8 +44,8 @@
   export default class QunDetail extends wepy.page {
     components = {}
     config = {
-      navigationBarBackgroundColor: '#FAFAFA',
-      navigationBarTextStyle: 'black',
+      // navigationBarBackgroundColor: '#FAFAFA',
+      // navigationBarTextStyle: 'black',
       navigationBarTitleText: '群详情'
     }
     data = {

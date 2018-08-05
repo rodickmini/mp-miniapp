@@ -5,7 +5,7 @@
     </view>
     <view class="list">
       <repeat for="{{list}}" key="index" index="index" item="user">
-        <view class="item">
+        <view class="item" @tap="gotoQunDetail">
           <view class="left">
             <image class="avatar" src="{{user.avatar}}" mode="aspectFill"/>
             <view class="text-info">
@@ -36,6 +36,11 @@
       list: Array
     }
     methods = {
+      gotoQunDetail() {
+        wx.navigateTo({
+          url: '/pages/tongxunlu/qunDetail'
+        })
+      }
     }
     onLoad() {
     }
