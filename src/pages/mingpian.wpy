@@ -6,7 +6,7 @@
         <view class="to-right">
           <i class="iconfont icon-xiaojiantou"></i>
         </view>
-        <view class="edit">
+        <view class="edit" @tap="edit">
           <i class="iconfont icon-edit"></i>
         </view>
         <name-card/>
@@ -36,7 +36,10 @@
     data = {}
     methods = {
       gotoDetail() {
-        wx.navigateTo({url: 'mingpian.detail'})
+        wx.navigateTo({url: '/pages/mingpian/detail'})
+      },
+      edit() {
+        wx.navigateTo({url: '/pages/mingpian/edit'})
       }
     }
     events = {

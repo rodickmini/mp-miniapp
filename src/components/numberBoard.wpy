@@ -29,10 +29,10 @@ export default class NumberBoard extends wepy.component {
   data = {}
   methods = {
     fangwenliangTap() {
-      wx.navigateTo({url: 'mingpian.fangwenliang'})
+      wx.navigateTo({url: '/pages/mingpian/fangwenliang'})
     },
     dianzanliangTap() {
-      wx.navigateTo({url: 'mingpian.dianzanliang'})
+      wx.navigateTo({url: '/pages/mingpian/dianzanliang'})
     }
   }
 }
