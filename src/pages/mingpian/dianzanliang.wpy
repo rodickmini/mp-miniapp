@@ -17,8 +17,8 @@
     }
     config = {
       navigationBarTitleText: '点赞量',
-      navigationBarBackgroundColor: '#FAFAFA'
-      // navigationBarTextStyle: 'white'
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
     }
     data = {
       tabList: [

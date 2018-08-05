@@ -4,7 +4,48 @@
       <view class="tab-item active">名片夹</view>
       <view class="tab-item">群通讯录</view>
     </view>
-    <view class="search-bar"></view>
+    <view class="search-bar">
+      <view class="inner">
+        <i class="iconfont icon-sousuo"></i><text>搜索联系人</text>
+      </view>
+    </view>
+    <view class="mini-title">
+      我的名片
+    </view>
+    <view class="list">
+      <view class="item">
+        <view class="left">
+          <image class="avatar" src="{{user.avatar}}" mode="aspectFill"/>
+          <view class="text-info">
+            <text class="username line-clamp-1">{{user.username}}</text>
+            <text class="title line-clamp-1">{{user.title}}</text>
+            <text class="company line-clamp-1">{{user.company}}</text>
+          </view>
+        </view>
+        <view class="right">
+          <button class="btn-send" open-type="share">发名片</button>
+        </view>
+      </view>
+    </view>
+    <view class="mini-title">134张名片</view>
+    <view class="list">
+      <repeat for="{{list}}" key="index" index="index" item="user">
+        <view class="item">
+          <view class="left">
+            <image class="avatar" src="{{user.avatar}}" mode="aspectFill"/>
+            <view class="text-info">
+              <text class="username line-clamp-1">{{user.username}}</text>
+              <text class="title line-clamp-1">{{user.title}}</text>
+              <text class="company line-clamp-1">{{user.company}}</text>
+            </view>
+          </view>
+          <view class="right">
+            <view class="status status-{{user.status}}">{{user.statusText}}</view>
+            <view class="time">{{user.time}}</view>
+          </view>
+        </view>
+      </repeat>
+    </view>
   </view>
 </template>
 
@@ -16,12 +57,89 @@
     config = {
       navigationBarTitleText: '通讯录'
     }
-    data = {}
+    data = {
+      user: {
+        avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+        username: '蔡游',
+        title: '经理',
+        company: '阿里妈妈互联网有限公司'
+      },
+      list: [
+        {
+          id: 1,
+          username: '虎妞',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          status: 0,
+          statusText: '申请交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 2,
+          username: '花花',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          status: 1,
+          statusText: '待对方接受交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 3,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 2,
+          statusText: '已交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 4,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 3,
+          statusText: '已拒绝',
+          time: '2018-08-05'
+        },
+        {
+          id: 5,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 1,
+          statusText: '待对方接受交换',
+          time: '2018-08-05'
+        }
+      ]
+    }
     methods = {
       
     }
+    statusText(status) {
+      const map = {
+        0: '申请交换',
+        1: '待对方接受交换',
+        2: '已交换',
+        3: '已拒绝'
+      }
+      return map[status]
+    }
     onLoad() {
       
+    }
+    onShareAppMessage({from, target, webviewUrl}) {
+      if(from === 'button') {
+        return {
+          title: '很高兴认识您，这是我的名片，请惠存！',
+          path: '/pages/mingpian/fangwenliang',
+          imageUrl: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg'
+        }
+      }
     }
   }
 </script>
@@ -35,11 +153,13 @@ $mainBlue: #04A7FE;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
   height: 90rpx;
   background-color: #fff;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1rpx solid #d4d4d4;
   .tab-item {
     position: relative;
     font-size: 28rpx;
@@ -69,5 +189,116 @@ $mainBlue: #04A7FE;
   height: 112rpx;
   background-color: #F2F2F2;
   border-bottom: 1rpx solid #D4D4D4;
+  .inner {
+    width: 702rpx;
+    height: 72rpx;
+    background-color: #fff;
+    line-height: 72rpx;
+    text-align: center;
+    color: #BEBEBE;
+    font-size: 30rpx;
+    vertical-align: middle;
+    border-radius: 10rpx;
+    text {
+      vertical-align: middle;
+      margin-left: 12rpx;
+    }
+  }
+}
+.mini-title {
+  background-color: #F2F2F2;
+  color: #606060;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  padding-left: 25rpx;
+}
+.btn-send {
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-image: linear-gradient(45deg, #69CBFF 0%, #04A7FE 100%);
+  box-shadow: 0 2px 4px 0 #75CFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.list {
+  padding-left: 24rpx;
+  background-color: #fff;
+  .item {
+    padding: 30rpx 24rpx 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #E8E8E8;
+    &:last-child {
+      border-bottom: none;
+    }
+    .left {
+      display: flex;
+      .avatar {
+        width: 108rpx;
+        height: 108rpx;
+        border-radius: 10rpx;
+        margin-right: 20rpx;
+        flex-shrink: 0;
+      }
+      .text-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .username {
+          color: #202020;
+          font-size: 32rpx;
+          line-height: 1;
+          margin-bottom: 20rpx;
+        }
+        .title {
+          color: #909090;
+          font-size: 22rpx;
+          line-height: 1;
+          margin-bottom: 12rpx;
+        }
+        .company {
+          color: #909090;
+          font-size: 22rpx;
+          line-height: 1.5;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-shrink: 0;
+      margin-left: 20rpx;
+      
+      .status {
+        font-size: 28rpx;
+        line-height: 28rpx;
+        color: #ababab;
+        margin-bottom: 16rpx;
+      }
+      .status-0 {
+        color: $mainBlue;
+      }
+      .status-1 {
+        color: #ababab;
+      }
+      .status-2 {
+        color: #ABABAB;
+      }
+      .status-3 {
+        color: #FF7C7C;
+      }
+      .time {
+        font-size: 22rpx;
+        line-height: 22rpx;
+        color: #909090;
+      }
+    }
+  }
 }
 </style>

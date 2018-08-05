@@ -17,8 +17,8 @@
     }
     config = {
       navigationBarTitleText: '访问量',
-      navigationBarBackgroundColor: '#FAFAFA'
-      // navigationBarTextStyle: 'white'
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
     }
     data = {
       tabList: [
