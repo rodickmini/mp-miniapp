@@ -23,7 +23,8 @@
         'pages/mingpian/edit',          // 名片编辑
         'pages/mingpian/fangwenliang',  // 访问量
         'pages/mingpian/dianzanliang',  // 点赞量
-        'pages/tongxunlu/search'        // 搜索
+        'pages/tongxunlu/search',       // 搜索
+        'pages/tongxunlu/qunList'
       ],
       window: {
         backgroundTextStyle: 'light',
