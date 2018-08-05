@@ -4,7 +4,7 @@
       <view class="tab-item active">名片夹</view>
       <view class="tab-item">群通讯录</view>
     </view>
-    <view class="search-bar">
+    <view class="search-bar" @tap="gotoSearch">
       <view class="inner">
         <i class="iconfont icon-sousuo"></i><text>搜索联系人</text>
       </view>
@@ -118,7 +118,11 @@
       ]
     }
     methods = {
-      
+      gotoSearch() {
+        wx.navigateTo({
+          url: '/pages/tongxunlu/search'
+        })
+      }
     }
     statusText(status) {
       const map = {
