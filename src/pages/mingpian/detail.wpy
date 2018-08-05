@@ -46,11 +46,20 @@
         <i class="iconfont icon-information"></i>
         <text class="text">返回首页</text>
       </view>
-      <view class="main-btn">发名片</view>
-      <view class="right-btn">
+      <view class="main-btn" wx:if="{{isSelf}}">发名片</view>
+      <view class="main-btn status-{{exchangeStatus}}" wx:else>{{statusText}}</view>
+      <view class="right-btn" wx:if="{{isSelf}}">
         <i class="iconfont icon-edit"></i>
         <text class="text">编辑名片</text>
       </view>
+      <view class="right-btn" wx:else>
+        <i class="iconfont icon-save"></i>
+        <text class="text">保存名片</text>
+      </view>
+    </view>
+    <view class="forward-btn" wx:if="{{!isSelf}}">
+      <i class="iconfont icon-share"></i>
+      <text>转发</text>
     </view>
   </view>
 </template>
@@ -70,12 +79,29 @@
       navigationBarBackgroundColor: '#04A7FE',
       navigationBarTextStyle: 'white'
     }
-    data = {}
-    methods = {
-      
+    data = {
+      id: null,
+      isSelf: true,
+      exchangeStatus: 0
     }
-    onLoad() {
-      
+    methods = {}
+    computed = {
+      statusText() {
+        const map = [
+          '申请交换名片',
+          '等待对方接受',
+          '接受对方交换',
+          '已交换成功',
+          '被拒绝交换名片'
+        ]
+        return map[~~this.exchangeStatus]
+      }
+    }
+    onLoad(query) {
+      console.log(query)
+      this.id = query.id
+      this.isSelf = query.is_other == 0 ? true : false
+      this.exchangeStatus = query.exchange_status ? query.exchange_status : 0
     }
   }
 </script>
@@ -186,6 +212,34 @@ $mainBlue: #04A7FE;
     flex-grow: 1;
     background-color: $mainBlue;
     color: #fff;
+    font-size: 30rpx;
+    &.status-1, &.status-3 {
+      background-color: #68CBFF;
+    }
+    &.status-4 {
+      background-color: #ccc;
+    }
+  }
+}
+.forward-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 165rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: $mainBlue;
+  box-shadow: 0 1px 4px 0 #75CFFF;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .iconfont {
+    font-size: 36rpx;
+  }
+  text {
+    font-size: 20rpx;
   }
 }
 </style>

@@ -24,7 +24,7 @@
         'pages/mingpian/fangwenliang',  // 访问量
         'pages/mingpian/dianzanliang',  // 点赞量
         'pages/tongxunlu/search',       // 搜索
-        'pages/tongxunlu/qunList'
+        'pages/tongxunlu/qunDetail'     // 群详情
       ],
       window: {
         backgroundTextStyle: 'light',
