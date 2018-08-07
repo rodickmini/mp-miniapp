@@ -24,7 +24,11 @@
         'pages/mingpian/fangwenliang',  // 访问量
         'pages/mingpian/dianzanliang',  // 点赞量
         'pages/tongxunlu/search',       // 搜索
-        'pages/tongxunlu/qunDetail'     // 群详情
+        'pages/tongxunlu/qunDetail',    // 群详情
+        'pages/renmai/fujinderen',
+        'pages/renmai/renqibang',
+        'pages/renmai/zuixinjiaru',
+        'pages/renmai/shuichakanwo'
       ],
       window: {
         backgroundTextStyle: 'light',

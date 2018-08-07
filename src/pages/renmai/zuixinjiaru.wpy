@@ -1,0 +1,26 @@
+<template>
+  <view>
+    最新加入
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Zuixinjiaru extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '最新加入'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+</style>

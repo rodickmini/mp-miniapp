@@ -6,7 +6,7 @@
       </view>
     </view>
     <view class="list">
-      <view class="list-item">
+      <view class="list-item" @tap="gotoFujinderen">
         <view class="left">
           <i class="iconfont icon-faxian"></i>
           <text class="text">附近的人</text>
@@ -18,7 +18,7 @@
           <i class="iconfont icon-xiaojiantou"></i>
         </view>
       </view>
-      <view class="list-item">
+      <view class="list-item" @tap="gotoRenqibang">
         <view class="left">
           <i class="iconfont icon-renqi"></i>
           <text class="text">人气榜</text>
@@ -30,7 +30,7 @@
           <i class="iconfont icon-xiaojiantou"></i>
         </view>
       </view>
-      <view class="list-item">
+      <view class="list-item" @tap="gotoZuixinjiaru">
         <view class="left">
           <i class="iconfont icon-faxian"></i>
           <text class="text">最新加入</text>
@@ -42,7 +42,7 @@
           <i class="iconfont icon-xiaojiantou"></i>
         </view>
       </view>
-      <view class="list-item">
+      <view class="list-item" @tap="gotoShuichakanwo">
         <view class="left">
           <i class="iconfont icon-eye"></i>
           <text class="text">谁查看我</text>
@@ -70,7 +70,26 @@
       userAvatar: "http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg"
     }
     methods = {
-      
+      gotoFujinderen() {
+        wx.navigateTo({
+          url: '/pages/renmai/fujinderen'
+        })
+      },
+      gotoRenqibang() {
+        wx.navigateTo({
+          url: '/pages/renmai/renqibang'
+        })
+      },
+      gotoZuixinjiaru() {
+        wx.navigateTo({
+          url: '/pages/renmai/zuixinjiaru'
+        })
+      },
+      gotoShuichakanwo() {
+        wx.navigateTo({
+          url: '/pages/renmai/shuichakanwo'
+        })
+      }
     }
     onLoad() {
       

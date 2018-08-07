@@ -1,0 +1,26 @@
+<template>
+  <view>
+    谁查看我
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Shuichakanwo extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '谁查看我'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+</style>
