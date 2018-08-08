@@ -87,7 +87,7 @@
       },
       gotoShuichakanwo() {
         wx.navigateTo({
-          url: '/pages/renmai/shuichakanwo'
+          url: '/pages/mingpian/fangwenliang'
         })
       }
     }
