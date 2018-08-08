@@ -1,6 +1,18 @@
 <template>
   <view>
-    常见问题
+    <view class="list">
+      <repeat for="{{qList}}" key="index" index="index" item="item">
+        <view class="item {{item.active}}" @tap="itemTap({{index}})">
+          <view class="header">
+            <text class="text">{{item.question}}</text>
+            <i class="iconfont icon-sanjiao"></i>
+          </view>
+          <view class="detail">
+            {{item.answer}}
+          </view>
+        </view>
+      </repeat>
+    </view>
   </view>
 </template>
 
@@ -12,9 +24,40 @@
     config = {
       navigationBarTitleText: '常见问题'
     }
-    data = {}
+    data = {
+      qList: [
+        {
+          question: '名词解释',
+          answer: '1解释文案解释文案解释文案解释文案解释文案解',
+          active: ''
+        },
+        {
+          question: '红包名片怎么玩？',
+          answer: '2解释文案解释文案解释文案解释文案解释文案解',
+          active: ''
+        },
+        {
+          question: '群通讯录和名片夹的区别？',
+          answer: '3解释文案解释文案解释文案解释文案解释文案解',
+          active: ''
+        },
+        {
+          question: '钱包如何提现？',
+          answer: '4解释文案解释文案解释文案解释文案解释文案解',
+          active: ''
+        }
+      ]
+    }
     methods = {
-      
+      itemTap(index) {
+        if(this.qList[index].active) {
+          this.qList[index].active = ''
+        } else {
+          this.qList.forEach((el, idx) => {
+            el.active = index === idx ? 'active' : ''
+          })
+        }
+      }
     }
     onLoad() {
       
@@ -23,5 +66,54 @@
 </script>
 
 <style lang="scss" scoped>
-
+.list {
+  background-color: #fff;
+  padding-left: 30rpx;
+  .item {
+    border-bottom: 2rpx solid #E4E4E4;
+    &:last-child {
+      border-bottom: none;
+    }
+    .header {
+      height: 116rpx;
+      padding-right: 30rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .text {
+        font-size: 32rpx;
+        color: #202020;
+      }
+      .iconfont {
+        font-size: 32rpx;
+        color: #A5A5A5;
+        transition: all .3s ease;
+      }
+    }
+    &.active {
+      .iconfont {
+        transform: rotate(90deg);
+      }
+    }
+    .detail {
+      font-size: 30rpx;
+      color: #909090;
+      line-height: 50rpx;
+      padding-right: 30rpx;
+      overflow: hidden;
+      height: 0;
+      transition: all .3s ease;
+      &:after {
+        content: "";
+        display: block;
+        height: 30rpx;
+      }
+    }
+    &.active {
+      .detail {
+        height: auto;
+      }
+    }
+  }
+}
 </style>
