@@ -22,7 +22,9 @@
   export default class ChangjianWenti extends wepy.page {
     components = {}
     config = {
-      navigationBarTitleText: '常见问题'
+      navigationBarTitleText: '常见问题',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
     }
     data = {
       qList: [
