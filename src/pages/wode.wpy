@@ -1,6 +1,51 @@
 <template>
   <view>
-    我的
+    <view class="info-wrapper">
+      <view class="my-info">
+        <image class="img" mode="aspectFill" src="http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg" />
+        <view class="info">
+          <view class="name line-clamp-1">张三</view>
+          <view class="phone">15810530867</view>
+        </view>
+      </view>
+      <view class="code-wrapper">
+        <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/qrcode.png" />
+        <text class="text">名片码</text>
+      </view>
+    </view>
+    <view class="list-wrapper">
+      <view class="list">
+        <view class="item">
+          <view class="info">
+            <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/qianbao.png" />
+            <text class="text">我的钱包</text>
+          </view>
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+        <view class="item">
+          <view class="info">
+            <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/hongbao.png" />
+            <text class="text">红包记录</text>
+          </view>
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+        <view class="item">
+          <view class="info">
+            <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/shezhi.png" />
+            <text class="text">隐私设置</text>
+          </view>
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+        <view class="item">
+          <view class="info">
+            <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/changjian.png" />
+            <text class="text">常见问题</text>
+          </view>
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+    </view>
+    
   </view>
 </template>
 
@@ -23,4 +68,85 @@
 </script>
 
 <style lang="scss" scoped>
+.info-wrapper {
+  background-color: #fff;
+  height: 200rpx;
+  padding: 40rpx 50rpx 40rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .my-info {
+    display: flex;
+    .img {
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 16rpx;
+      margin-right: 24rpx;
+      flex-shrink: 0;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .name {
+        font-size: 40rpx;
+        color: #202020;
+      }
+      .phone {
+        font-size: 28rpx;
+        color: #606060;
+      }
+    }
+  }
+  .code-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .img {
+      width: 60rpx;
+      height: 60rpx;
+      margin-bottom: 10rpx;
+    }
+    .text {
+      font-size: 24rpx;
+      color: #909090;
+    }
+  }
+}
+.list-wrapper {
+  padding-top: 20rpx;
+  .list {
+    background-color: #fff;
+    padding-left: 30rpx;
+    .item {
+      padding-right: 30rpx;
+      height: 112rpx;
+      border-bottom: 2rpx solid #E4E4E4;
+      &:last-child {
+        border-bottom: none;
+      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .info {
+        .img {
+          width: 50rpx;
+          height: 50rpx;
+          margin-right: 22rpx;
+          vertical-align: middle;
+        }
+        .text {
+          font-size: 30rpx;
+          color: #303030;
+          vertical-align: middle;
+        }
+      }
+      .iconfont {
+        font-size: 24rpx;
+        color: #909090;
+      }
+    }
+  }
+}
 </style>
