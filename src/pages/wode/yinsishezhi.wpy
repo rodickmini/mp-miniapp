@@ -1,0 +1,27 @@
+<template>
+  <view>
+    隐私设置
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class YinsiShezhi extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '隐私设置'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

@@ -28,7 +28,11 @@
         'pages/renmai/fujinderen',
         'pages/renmai/renqibang',
         'pages/renmai/zuixinjiaru',
-        'pages/renmai/shuichakanwo'
+        'pages/wode/mingpianma',
+        'pages/wode/qianbao',
+        'pages/wode/hongbaojilu',
+        'pages/wode/yinsishezhi',
+        'pages/wode/changjianwenti'
       ],
       window: {
         backgroundTextStyle: 'light',

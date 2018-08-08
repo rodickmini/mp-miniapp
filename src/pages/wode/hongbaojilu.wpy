@@ -1,0 +1,27 @@
+<template>
+  <view>
+    红包记录
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class HongbaoJilu extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '红包记录'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>
