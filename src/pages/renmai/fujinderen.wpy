@@ -95,7 +95,9 @@
   export default class Fujinderen extends wepy.page {
     components = {}
     config = {
-      navigationBarTitleText: '附近的人'
+      navigationBarTitleText: '附近的人',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
     }
     data = {}
     methods = {
