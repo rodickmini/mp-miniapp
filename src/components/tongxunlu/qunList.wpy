@@ -14,7 +14,7 @@
             </view>
           </view>
           <view class="right">
-            <button class="btn-invite" open-type="share">邀请</button>
+            <button class="btn-invite" open-type="share" hover-stop-propagation="true">邀请</button>
           </view>
         </view>
       </repeat>
@@ -35,6 +35,7 @@
     props = {
       list: Array
     }
+    data = {}
     methods = {
       gotoQunDetail() {
         wx.navigateTo({

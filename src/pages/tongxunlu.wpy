@@ -208,6 +208,7 @@ $mainBlue: #04A7FE;
     position: relative;
     font-size: 28rpx;
     color: #909090;
+    line-height: 90rpx;
     &.active {
       color: #303030;
       font-weight: bold;
@@ -216,7 +217,7 @@ $mainBlue: #04A7FE;
       content: "";
       display: block;
       position: absolute;
-      bottom: -16rpx;
+      bottom: 8rpx;
       left: 50%;
       margin-left: -23rpx;
       width: 46rpx;

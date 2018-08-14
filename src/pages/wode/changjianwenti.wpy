@@ -13,6 +13,9 @@
         </view>
       </repeat>
     </view>
+    <view class="contact">
+      <button class="btn-contact" size="mini" open-type="contact">联系客服</button>
+    </view>
   </view>
 </template>
 
@@ -115,6 +118,19 @@
       .detail {
         height: auto;
       }
+    }
+  }
+}
+.contact {
+  text-align: center;
+  margin-top: 60rpx;
+  .btn-contact {
+    font-size: 26rpx;
+    color: #909090;
+    border: none;
+    background: transparent;
+    &:after {
+      border: none;
     }
   }
 }
