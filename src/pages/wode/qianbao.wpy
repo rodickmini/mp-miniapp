@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="page">
     <view class="left-amount">
       <view class="label">账户余额</view>
       <view class="count">{{total}}元</view>
@@ -56,6 +56,9 @@
 
 <style lang="scss" scoped>
 $mainBlue: #04A7FE;
+.page {
+  padding-top: 130rpx;
+}
 .label {
   font-size: 32rpx;
   color: #606060;
@@ -65,7 +68,6 @@ $mainBlue: #04A7FE;
   display: flex;
   padding-left: 30rpx;
   align-items: flex-end;
-  margin-top: 130rpx;
   margin-bottom: 90rpx;
   .count {
     font-size: 46rpx;
