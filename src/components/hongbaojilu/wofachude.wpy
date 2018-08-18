@@ -12,7 +12,7 @@
       <view class="red-count">发出红包 <text class="count">43</text> 个</view>
     </view>
     <view class="list">
-      <view class="item">
+      <view class="item" @tap="gotoDetail">
         <view class="left">
           <view class="words line-clamp-1">恭喜发财，大吉大利！</view>
           <view class="time">06-15 12:34</view>
@@ -47,7 +47,11 @@ export default class Wofachude extends wepy.component {
     avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
     nickname: '小明'
   }
-  methods = {}
+  methods = {
+    gotoDetail() {
+      wx.navigateTo({url: '/pages/hongbao/hongbaoDetail'})
+    }
+  }
 }
 </script>
 

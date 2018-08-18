@@ -14,7 +14,7 @@
     </view>
     <number-board/>
     <button class="btn btn-send" open-type="share">发名片</button>
-    <button class="btn btn-send-hongbao">发红包名片</button>
+    <button class="btn btn-send-hongbao" @tap="gotoFahongbao">发红包名片</button>
   </view>
 </template>
 
@@ -40,6 +40,9 @@
       },
       edit() {
         wx.navigateTo({url: '/pages/mingpian/edit'})
+      },
+      gotoFahongbao() {
+        wx.navigateTo({url: '/pages/hongbao/fahongbao'})
       }
     }
     events = {

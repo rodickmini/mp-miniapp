@@ -26,7 +26,7 @@
             <i class="iconfont icon-xiaojiantou"></i>
           </view>
         </navigator>
-        <navigator url="/pages/wode/hongbaojilu" hover-class="none">
+        <navigator url="/pages/hongbao/hongbaojilu" hover-class="none">
           <view class="item">
             <view class="info">
               <image class="img" mode="aspectFill" src="http://pcxxelj6y.bkt.clouddn.com/mingpian/img/hongbao.png" />

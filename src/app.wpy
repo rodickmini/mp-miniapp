@@ -30,9 +30,11 @@
         'pages/renmai/zuixinjiaru',
         'pages/wode/mingpianma',
         'pages/wode/qianbao',
-        'pages/wode/hongbaojilu',
         'pages/wode/yinsishezhi',
-        'pages/wode/changjianwenti'
+        'pages/wode/changjianwenti',
+        'pages/hongbao/hongbaojilu',
+        'pages/hongbao/hongbaoDetail',     // 红包详情
+        'pages/hongbao/fahongbao'
       ],
       window: {
         backgroundTextStyle: 'light',
