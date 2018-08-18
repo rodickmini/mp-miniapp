@@ -1,0 +1,113 @@
+<template>
+  <view class="bg">
+    <view class="head">
+      <image class="avatar" mode="aspectFill" src="http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg"/>
+      <view class="nickname">王老板</view>
+      <view class="text">发了一个红包名片</view>
+      <view class="words">拆开红包 大机大遇</view>
+    </view>
+    <view class="kai"></view>
+    <button class="share" open-type="share">转发到好友/群聊</button>
+    <view class="share-timeline">转发到朋友圈</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class HongbaoMingpian extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '红包名片',
+      navigationBarBackgroundColor: '#D85940',
+      navigationBarTextStyle: 'white'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .bg {
+    height: 100%;
+    background-color: #CD533D;
+    .head {
+      height: 570rpx;
+      background-image: url(http://pcxxelj6y.bkt.clouddn.com/mingpian/img/hb_head_bg.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .avatar {
+        width: 120rpx;
+        height: 120rpx;
+        border-radius: 10rpx;
+        margin-top: 60rpx;
+      }
+      .nickname {
+        font-size: 28rpx;
+        line-height: 32rpx;
+        color: #DCBC83;
+        font-weight: bold;
+        margin-top: 24rpx;
+      }
+      .text {
+        font-size: 28rpx;
+        line-height: 32rpx;
+        color: #DCBC83;
+        margin-top: 24rpx;
+      }
+      .words {
+        font-size: 50rpx;
+        line-height: 50rpx;
+        color: #FEEE85;
+        font-weight: bold;
+        margin-top: 60rpx;
+      }
+    }
+    .kai {
+      width: 240rpx;
+      height: 240rpx;
+      background-image: url(http://pcxxelj6y.bkt.clouddn.com/mingpian/img/kai.png);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin: -120rpx auto 0;
+    }
+    button.share {
+      margin-top: 150rpx;
+      width: 620rpx;
+      height: 90rpx;
+      background-color: #FEEE85;
+      background-image: url(http://pcxxelj6y.bkt.clouddn.com/mingpian/img/btn_share_hongbao.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34rpx;
+      color: #B3472B;
+      border: none;
+      &:after {
+        border: none;
+      }
+    }
+    .share-timeline {
+      margin: 60rpx auto;
+      width: 620rpx;
+      height: 90rpx;
+      border: 2rpx solid #fff;
+      border-radius: 10rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34rpx;
+      color: #fff;
+    }
+  }
+</style>

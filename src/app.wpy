@@ -34,7 +34,8 @@
         'pages/wode/changjianwenti',
         'pages/hongbao/hongbaojilu',
         'pages/hongbao/hongbaoDetail',     // 红包详情
-        'pages/hongbao/fahongbao'
+        'pages/hongbao/fahongbao',
+        'pages/hongbao/hongbaoMingpian'
       ],
       window: {
         backgroundTextStyle: 'light',

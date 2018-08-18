@@ -10,7 +10,9 @@
   export default class HongbaoDetail extends wepy.page {
     components = {}
     config = {
-      navigationBarTitleText: '红包详情'
+      navigationBarTitleText: '红包详情',
+      navigationBarBackgroundColor: '#D85940',
+      navigationBarTextStyle: 'white'
     }
     data = {}
     methods = {

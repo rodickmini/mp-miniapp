@@ -20,7 +20,9 @@
       'woshoudaode': Woshoudaode
     }
     config = {
-      navigationBarTitleText: '红包记录'
+      navigationBarTitleText: '红包记录',
+      navigationBarBackgroundColor: '#D85940',
+      navigationBarTextStyle: 'white'
     }
     data = {
       tabStatus: ['active', '']

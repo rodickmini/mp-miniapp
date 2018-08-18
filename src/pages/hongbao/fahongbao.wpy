@@ -22,12 +22,12 @@
       <view class="amount">{{totalAmount}}</view>
       <view class="addon">元</view>
     </view>
-    <view class="main-btn">生成红包名片</view>
+    <view class="main-btn" @tap="send">生成红包名片</view>
     <view class="tips">
       需支付 <text class="red">{{tipsAmount}}</text>元 服务费
     </view>
     <view class="bottom-area">
-      <view class="item">红包记录</view>
+      <view class="item" @tap="gotoHongbaojilu">红包记录</view>
       <view class="item">联系客服</view>
     </view>
   </view>
@@ -75,6 +75,12 @@
       },
       inputWords(e) {
         this.words = e.detail.value
+      },
+      gotoHongbaojilu() {
+        wx.navigateTo({url: '/pages/hongbao/hongbaojilu'})
+      },
+      send() {
+        wx.navigateTo({url: '/pages/hongbao/hongbaoMingpian'})
       }
     }
     onLoad() {
