@@ -4,7 +4,7 @@
       <view class="input-wrapper">
         <view class="label">总金额</view>
         <view class="right">
-          <input type="number" placeholder="0.00" placeholder-style="color: #ccc;"/>
+          <input type="number" value="{{amount}}" @input="inputAmount" placeholder="0.00" placeholder-style="color: #ccc;"/>
           <text class="addon">元</text>
         </view>
       </view>
@@ -12,19 +12,19 @@
       <view class="input-wrapper">
         <view class="label">红包数量</view>
         <view class="right">
-          <input type="number" placeholder="填写红包个数" placeholder-style="color: #ccc;"/>
+          <input type="number" value="{{count}}" @input="inputCount" placeholder="填写红包个数" placeholder-style="color: #ccc;"/>
           <text class="addon">个</text>
         </view>
       </view>
-      <textarea class="words" placeholder="拆开红包，大机大遇" placeholder-style="color: #ccc;"/>
+      <textarea class="words" value="{{words}}" @input="inputWords" placeholder="拆开红包，大机大遇" placeholder-style="color: #ccc;"/>
     </view>
     <view class="total-amount">
-      <view class="amount">0.00</view>
+      <view class="amount">{{totalAmount}}</view>
       <view class="addon">元</view>
     </view>
     <view class="main-btn">生成红包名片</view>
     <view class="tips">
-      需支付 <text class="red">0.00</text>元 服务费
+      需支付 <text class="red">{{tipsAmount}}</text>元 服务费
     </view>
     <view class="bottom-area">
       <view class="item">红包记录</view>
@@ -43,9 +43,39 @@
       navigationBarBackgroundColor: '#FAFAFA',
       navigationBarTextStyle: 'black'
     }
-    data = {}
+    data = {
+      amount: '0.00',
+      count: 0,
+      words: ''
+    }
+    computed = {
+      tipsAmount() {
+        return ~~this.amount * 0.02
+      },
+      totalAmount() {
+        let arr = this.amount.split('.')
+        if(arr[0] === '') {
+          arr[0] = 0
+        }
+        let totalRest = ''
+        if(arr[1] === '' || !arr[1]) {
+          totalRest = '00'
+        } else {
+          totalRest = arr[1].length === 1 ? arr[1] + '0' : arr[1]
+        }
+        return [arr[0], totalRest].join('.')
+      }
+    }
     methods = {
-      
+      inputAmount(e) {
+        this.amount = e.detail.value
+      },
+      inputCount(e) {
+        this.count = e.detail.value
+      },
+      inputWords(e) {
+        this.words = e.detail.value
+      }
     }
     onLoad() {
       
