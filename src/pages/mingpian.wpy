@@ -9,7 +9,7 @@
         <view class="edit" @tap="edit">
           <i class="iconfont icon-edit"></i>
         </view>
-        <name-card/>
+        <name-card :themeId="themeId"/>
       </view>
     </view>
     <number-board/>
@@ -79,7 +79,8 @@
       navigationBarTextStyle: 'white'
     }
     data = {
-      themeActive: false
+      themeActive: false,
+      themeId: 3
     }
     methods = {
       gotoDetail() {
