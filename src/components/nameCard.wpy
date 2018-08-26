@@ -24,17 +24,11 @@ import wepy from 'wepy'
 export default class NameCard extends wepy.component {
   components = {}
   props = {
-    themeId: Number,
+    themeInfo: Object,
     cardInfo: Object
   }
   config = {}
   data = {
-    themeInfo: {
-      cardBg: '',
-      darkColor: '#fff',
-      lightColor: 'rgba(255,255,255,.7)',
-      btnColor: 'blue'
-    }
   }
   methods = {
     viewImage(url) {
@@ -50,16 +44,7 @@ export default class NameCard extends wepy.component {
     }
   }
   onLoad() {
-    console.log('themeId...')
-    console.log(this.themeId)
-    const themeConfig = require('../js/templateConfig')
-    console.log(themeConfig)
-    const themeInfo = themeConfig.tplList.find(tpl => {
-      return tpl.id == this.themeId
-    })
-    console.log(themeInfo)
-    this.themeInfo = themeInfo
-    this.$apply()
+    console.log(this.themeInfo)
   }
 }
 </script>

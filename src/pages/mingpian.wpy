@@ -9,7 +9,7 @@
         <view class="edit" @tap="edit">
           <i class="iconfont icon-edit"></i>
         </view>
-        <name-card :themeId="themeId"/>
+        <name-card :themeInfo="themeInfo" :cardInfo="cardInfo"/>
       </view>
     </view>
     <number-board/>
@@ -80,7 +80,11 @@
     }
     data = {
       themeActive: false,
-      themeId: 3
+      themeId: 3,
+      themeInfo: {},
+      cardInfo: {
+        name: 'caiyou'
+      }
     }
     methods = {
       gotoDetail() {
@@ -103,7 +107,15 @@
       
     }
     onLoad() {
-      
+      const themeConfig = require('../js/templateConfig')
+      const info = themeConfig.tplList.find(tpl => {
+        return tpl.id == this.themeId
+      })
+      console.log(info)
+      this.themeInfo = info
+      this.$apply()
+      this.$apply()
+      this.$apply()
     }
   }
 </script>
